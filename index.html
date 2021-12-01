@@ -1,0 +1,134 @@
+<!-- SE FOR EDITAR BOA SORTE PRA ENTENDER :)
+ASS: JOÃO ENRIQUE -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculadora - João Enrique</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="fundo">
+        <script src="js/app.js"></script>
+    <!--Miniaturas dos botões para abrir os apps-->
+        <input id="miniaturaIMC" class="miniaturaIMC" type="button" onclick="entrarIMC()" value="Calcule seu IMC" />
+        <input id="miniaturaIdade" class="miniaturaIdade" type="button" onclick="entrarIdade()" value="Calcule sua Idade" />
+        <input id="miniaturaCalculadora" class="miniaturaCalculadora" type="button" onclick="entrarCalculadora()" value="Calculadora" />
+    <!--Miniaturas dos botões para abrir os apps-->
+        
+    <!--App para calcular o IMC-->
+        <div class="white ui-widget-content" id="sairIMC" style="display: none;">
+            <input class="btn-sair" type="button" onclick="sairIMC()" value="x" /><!--Botão pra sair-->
+            <h1>Calcule seu IMC</h1>
+            <h4><label for="peso">Informe seu peso: </label><br/><!--Peso-->
+            <input type="text" class="input" id="peso" name="peso"></h4>
+
+            <h4><label for="altura">Informe sua altura: </label><br/><!--Altura-->
+            <input type="text" class="input" id="altura" name="altura"></h4>
+            <input class="btn-calcular" type="button" onclick="calcularIMC()" value="Calcular IMC" /><!--Botão pra calcular-->
+            <div class="fundoErro">
+                <p class="subtitulo">Resultado:</p>
+                <p id="imc">Seu IMC é: x</p>
+                <p id="classificacao">Você está: x peso</p>
+                <br/><br/><br/>
+            </div>       
+        </div>
+    <!--App para calcular o IMC--> 
+
+    <!--App para calcular a Idade-->
+        <div class="white ui-widget-content" id="sairIdade" style=" display: none;">
+            <input class="btn-sair" type="button" onclick="sairIdade()" value="x" /><!--Botão pra sair-->
+            <h1>Contador de Idade</h1>
+            <h4><label for="ano"> Informe o seu ano de nascimento: </label><br/>
+            <input type="text" class="input" id="ano" name="ano"></h4>
+            <input class="btn-calcular" type="button" onclick="calcularIdade()" value="Calcular Idade" /><!--Botão pra calcular-->
+            <p>Sua Idade:</p>
+            <p id="anos">Você tem: xx anos</p><!--Informa os anos-->
+            <p id="meses">Você tem: xx meses</p><!--Informa os meses-->
+            <p id="semanas">Você tem: xx semas</p><!--Informa as semanas-->
+            <p id="dias">Você tem: xx dias</p><!--Informa os dias-->
+            <p id="horas">Você tem: xx horas</p><!--Informa as horas-->
+            <p id="minutos">Você tem: xx minutos</p><!--Informa os minutos-->
+            <p id="segundos">Você tem: xx segundos</p><!--Informa os segundos-->
+        </div>
+    <!--App para calcular a Idade-->
+    <!--App Calculadora-->
+        <div class="white ui-widget-content" id="sairCalculadora">
+            <input class="btn-sair" type="button" onclick="sairCalculadora()" value="x" />
+            <h1 class="text-center">Calculadora</h1>
+            <form name='form'>
+                <input class="textview resposta calculo" name='textview'> 
+            </form>  
+
+            <table>
+                <td>
+                    <input type="button" class='button' onclick='c()' value="C">
+                    <input type="button" class='button' onclick="back()" value="<">
+                    <input type="button" class='button' onclick="insert('/')" value="/">
+                    <input type="button" class='button' onclick="back('')" value="⇐">
+                </td>
+                <tr>
+                    <td>
+                        <input type="button" class='button' onclick="insert(7)" value="7">
+                        <input type="button" class='button' onclick="insert(8)" value="8">
+                        <input type="button" class='button' onclick="insert(9)" value="9">
+                        <input type="button" class='button' onclick="insert('+')" value="+">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" class='button' onclick="insert(4)" value="4">
+                        <input type="button" class='button' onclick="insert(5)" value="5">
+                        <input type="button" class='button' onclick="insert(6)" value="6">
+                        <input type="button" class='button' onclick="insert('-')" value="-">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" class='button' onclick="insert(1)" value="1">
+                        <input type="button" class='button' onclick="insert(2)" value="2">
+                        <input type="button" class='button' onclick="insert(3)" value="3">
+                        <input type='button' class='button' onclick="insert('*')"value="x">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type='button' class='button' onclick="insert('')" value=" ">
+                        <input type='button' class='button' onclick="insert(0)"  value="0">
+                        <input type='button' class='button' onclick="insert('.')"value=".">
+                        <input type="button" class='button' onclick='equal()'   value="=">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+
+        
+<!-- SCRIPT PRA ARRASTAR DIV -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      
+    <!--App Calculadora-->
+    </body>
+
+    <script>
+        $(function() {
+        $("#sairCalculadora").draggable();
+    });
+
+
+    $(function() {
+        $("#sairIdade").draggable();
+    });
+
+
+    $(function() {
+        $("#sairIMC").draggable();
+    });
+
+    
+    </script>
+</html>
